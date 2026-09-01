@@ -1,10 +1,11 @@
 :root {
-  --ink:#18201d;
-  --paper:#f7f4ed;
-  --lime:#d9f863;
-  --coral:#ff8c73;
-  --blue:#9bd7f5;
-  --yellow:#ffd954;
+  --ink:#282421;
+  --paper:#f4ebe2;
+  --teal-dark:#786a5f;
+  --lime:#16dce2;
+  --coral:#ff8500;
+  --blue:#55a29f;
+  --yellow:#b97d4b;
 }
 
 * {
@@ -24,24 +25,28 @@ body {
 
 .header {
   width:100%;
-  padding:24px 32px;
+  padding:15px 32px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   position: sticky;
   top:0;
   z-index:100;
-  background:var(--paper);
+  background:var(--blue);
+  transition:transform 220ms ease;
+}
+.header.is-hidden {
+  transform:translateY(-100%);
 }
 
 .logo {
-  font:700 25px "DM Mono",monospace;
+  font:700 22px "DM Mono",monospace;
   color:inherit;
   text-decoration:none;
 }
 
 .logo span {
-  color:#ee5f50;
+  color:var(--yellow);
 }
 
 nav {
@@ -71,7 +76,7 @@ nav a {
 
 .hero {
   min-height:610px;
-  padding-top:100px;
+  padding-top:40px;
 }
 
 .eyebrow {
@@ -105,7 +110,7 @@ nav a {
   align-items:center;
   text-decoration:none;
   color:var(--ink);
-  background:var(--lime);
+  background:var(--coral);
   padding:15px 19px;
   border-radius:4px;
   font-weight:700;
@@ -121,8 +126,21 @@ nav a {
 .section-title {
   display:flex;
   justify-content:space-between;
-  align-items:baseline;
+  align-items:end;
   margin-bottom:30px;
+}
+.see-all {
+  padding:11px 14px;
+  color:var(--ink);
+  border:1px solid var(--ink);
+  border-radius:30px;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+}
+.see-all span {
+  margin-left:8px;
+  font-size:17px;
 }
 .section h2,.contact h2 {
   font-size:clamp(35px,5vw,65px);
@@ -142,6 +160,22 @@ nav a {
   min-height:430px;
   display:flex;
   flex-direction:column;
+  transition:transform 180ms ease, box-shadow 180ms ease;
+}
+.project-card-link {
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+@media (hover:hover) {
+  .project-card:not(.is-coming-soon):hover {
+    z-index:1;
+    box-shadow:0 12px 24px rgba(24,32,29,.16);
+    transform:scale(1.025);
+  }
+}
+.project-card.is-coming-soon {
+  opacity:.82;
 }
 .coral {
   background:var(--coral);
@@ -176,7 +210,8 @@ nav a {
   font-size:14px;
   margin:5px 0 0;
 }
-.project-info a {
+.project-info a,
+.project-link-icon {
   color:inherit;
   text-decoration:none;
   font-size:29px;
@@ -225,7 +260,7 @@ nav a {
   font-style:normal;
 }
 .art-tasks {
-  background:#fffef8;
+  background:#faeee2;
   margin:22px 10px;
   padding:18px;
   display:block;
@@ -287,33 +322,76 @@ nav a {
 .contact > a span {
   margin-left:15px;
 }
+.page-hero {
+  max-width:1200px;
+  margin:auto;
+  padding:40px 32px;
+}
+.page-hero h1 {
+  max-width:750px;
+  margin:0;
+  font-size:clamp(48px,7vw,90px);
+  line-height:.95;
+  letter-spacing:-.07em;
+}
+.page-hero p:last-child {
+  max-width:500px;
+  margin:28px 0 0;
+  font-size:18px;
+  line-height:1.55;
+}
+.all-projects {
+  max-width:1200px;
+  margin:auto;
+  padding:40px 32px 100px;
+}
 footer {
   max-width:1200px;
   padding:25px 32px;
   margin:auto;
   display:flex;
   justify-content:space-between;
-  border-top:1px solid #cfcac0;
+  border-top:1px solid #c9aca0;
   font:12px "DM Mono",monospace;
 }
 
 @media (max-width:700px) {
   .header {
-    padding:20px;
+    padding:12px 20px;
+  }
+  .logo {
+    font-size:21px;
   }
   nav {
     gap:14px;
   }
+  .nav-contacto {
+    padding:7px 11px;
+    font-size:13px;
+  }
   nav a:not(.nav-contacto) {
     display:none;
+  }
+  .section-title {
+    gap:18px;
+    align-items:flex-start;
+    flex-direction:column;
   }
   .hero,.section,.contact {
     padding-left:20px;
     padding-right:20px;
   }
+  .page-hero,
+  .all-projects {
+    padding-right:20px;
+    padding-left:20px;
+  }
+  .page-hero {
+    padding-top:30px;
+  }
   .hero {
     min-height:560px;
-    padding-top:80px;
+    padding-top:30px;
   }
   .project-grid,.about-content {
     grid-template-columns:1fr;
@@ -339,6 +417,10 @@ footer {
     padding-top:75px;
     padding-bottom:75px;
   }
+  .contact > a {
+    max-width:100%;
+    font-size:clamp(15px,5vw,20px);
+    overflow-wrap:anywhere;
+  }
 
 }
-

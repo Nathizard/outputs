@@ -1,25 +1,25 @@
 // Los proyectos se leen de arriba hacia abajo: el primero es el más reciente.
 const projects = [
   {
-    title: "Mi portafolio",
-    description: "Mi primera página web personal",
+    title: "My portfolio",
+    description: "My first personal website",
     tags: ["HTML", "CSS", "GITHUB"],
     color: "coral",
     art: "portfolio",
     url: "index.html",
   },
   {
-    title: "Próximamente",
-    description: "Un nuevo proyecto está en camino",
-    tags: ["EN DESARROLLO"],
+    title: "Coming soon",
+    description: "A new project is on the way",
+    tags: ["IN DEVELOPMENT"],
     color: "blue",
     art: "coming",
     comingSoon: true,
   },
   {
-    title: "Próximamente",
-    description: "Aquí estará mi siguiente creación",
-    tags: ["EN DESARROLLO"],
+    title: "Coming soon",
+    description: "A new project is on the way",
+    tags: ["IN DEVELOPMENT"],
     color: "yellow",
     art: "coming",
     comingSoon: true,
@@ -28,8 +28,8 @@ const projects = [
 
 function createArt(type) {
   const art = {
-    portfolio: '<div class="project-art art-notes"><span>✦</span><span>PORTAFOLIO</span><span>✦</span></div>',
-    coming: '<div class="project-art art-notes"><span>✦</span><span>PRÓXIMAMENTE</span><span>✦</span></div>',
+    portfolio: '<div class="project-art art-notes"><span>✦</span><span>PORTFOLIO</span><span>✦</span></div>',
+    coming: '<div class="project-art art-notes"><span>✦</span><span>COMING SOON</span><span>✦</span></div>',
   };
 
   return art[type];
